@@ -14,7 +14,7 @@ int main(int argc, char *argv[])
     }
 
     char *str = argv[1];
-    if (*str == "")
+    if (*str == '\0')
     {
         printf("\n");
     }

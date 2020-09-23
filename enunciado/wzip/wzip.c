@@ -2,8 +2,6 @@
 #include <string.h>
 #include <stdlib.h>
 
-void compressFile(char *fname);
-
 int main(int argc, char *argv[])
 {
     if (argc == 1)
@@ -12,45 +10,44 @@ int main(int argc, char *argv[])
         exit(1);
     }
 
-    for (int i = 1; i < argc; i++)
-    {
-        compressFile(argv[i]);
-    }
-
-    return 0;
-}
-
-void compressFile(char *fname)
-{
     char *line = NULL;
     size_t len = 0;
     size_t read;
-    FILE *inFile = fopen(fname, "r");
-    if (inFile == NULL)
+    char aux;
+    int count;
+    
+    for (int i = 1; i < argc; i++)
     {
-        printf("wzip: cannot open file\n");
-        exit(1);
-    }
-    while ((read = getline(&line, &len, inFile)) != -1)
-    {
-        char aux = line[0];
-        int count = 1;
-        for (int i = 1; i < len; i++)
+
+        FILE *inFile = fopen(argv[i], "r");
+        if (inFile == NULL)
         {
-            if (aux == line[i])
+            printf("wzip: cannot open file\n");
+            exit(1);
+        }
+        while ((read = getline(&line, &len, inFile)) != -1)
+        {
+            aux = line[0];
+            count = 1;
+            for (int j = 1; j < len; j++)
             {
-                count++;
-            }
-            else
-            {
-                printf("caracter %c",line[i]);
-                puts("");
-                fwrite(&count, 4, 1, stdout);
-                fwrite(&aux, 1, 1, stdout);
-                aux = line[i];
-                count = 1;
+                if (aux == line[j])
+                {
+                    count++;
+                }
+                else
+                {
+                    printf("caracter %c", line[j]);
+                    puts("");
+                    fwrite(&count, 4, 1, stdout);
+                    fwrite(&aux, 1, 1, stdout);
+                    aux = line[j];
+                    count = 1;
+                }
             }
         }
+        fclose(inFile);
     }
-    fclose(inFile);
+
+    return 0;
 }

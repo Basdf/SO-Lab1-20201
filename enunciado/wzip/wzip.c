@@ -10,12 +10,6 @@ int main(int argc, char *argv[])
         exit(1);
     }
 
-    char *line = NULL;
-    size_t len = 0;
-    size_t read;
-    char aux;
-    int count;
-
     for (int i = 1; i < argc; i++)
     {
 

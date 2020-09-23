@@ -20,12 +20,12 @@ int main(int argc, char *argv[])
             exit(1);
         }
         int currChar;        /* current characters */
-        int prevChar;        /* previous characters */
-        unsigned char count; /* number of characters in a run */
+        // int prevChar;        /* previous characters */
+        // unsigned char count; /* number of characters in a run */
 
-        /* encode inFile */
-        prevChar = EOF; /* force next char to be different */
-        count = 0;
+        // /* encode inFile */
+        // prevChar = EOF; /* force next char to be different */
+        // count = 0;
         // aaaab
         /* read input until there's nothing left */
         while ((currChar = fgetc(inFile)) != EOF)

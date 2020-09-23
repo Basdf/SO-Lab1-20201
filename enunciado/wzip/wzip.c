@@ -44,7 +44,7 @@ void compressFile(char *fname)
         int count = 1;
         for (int i = 1; i < len; i++)
         {
-            puts(line[i]);
+            puts("Caracter %c",line[i]);
             if (aux == line[i])
             {
                 count++;

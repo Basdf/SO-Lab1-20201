@@ -34,7 +34,6 @@ int main(int argc, char *argv[])
             }
             else if (prevChar == currChar)
             {
-                printf("%i", count);
                 count++;
             }
             else if (prevChar != currChar)

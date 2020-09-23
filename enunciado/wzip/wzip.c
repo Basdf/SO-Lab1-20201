@@ -15,13 +15,13 @@ int main(int argc, char *argv[])
         exit(1);
     }
 
-    fuseFiles(argc, argv);
+    //fuseFiles(argc, argv);
 
-    // for (int i = 1; i < argc; i++)
-    // {
-    //     // compressFile(argv[i]);
+    for (int i = 1; i < argc; i++)
+    {
+        compressFile(argv[i]);
 
-    // }
+    }
 
     return 0;
 }
@@ -44,6 +44,7 @@ void compressFile(char *fname)
         int count = 1;
         for (int i = 1; i < len; i++)
         {
+            printf(line[i]);
             if (aux == line[i])
             {
                 count++;

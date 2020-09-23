@@ -3,9 +3,6 @@
 #include <stdlib.h>
 
 void compressFile(char *fname);
-// void fuseFiles(int count, char *fname[]);
-
-char text[] = {};
 
 int main(int argc, char *argv[])
 {
@@ -15,12 +12,9 @@ int main(int argc, char *argv[])
         exit(1);
     }
 
-    //fuseFiles(argc, argv);
-
     for (int i = 1; i < argc; i++)
     {
         compressFile(argv[i]);
-
     }
 
     return 0;
@@ -42,12 +36,13 @@ void compressFile(char *fname)
 
         char aux = line[0];
         int count = 1;
+        printf("linea %c",line);
+        puts("");
         for (int i = 1; i < len; i++)
         {
-            printf("Caracter %c",line[i]);
-            puts("");
             if (aux == line[i])
             {
+                puts("entre al if");
                 count++;
             }
             else
@@ -61,35 +56,3 @@ void compressFile(char *fname)
     }
     fclose(inFile);
 }
-
-// void fuseFiles(int count, char *fname[])
-// {
-//     char *line = NULL;
-//     size_t len = 0;
-//     size_t read;
-//     FILE *inFile;
-//     int k = 0;
-//     for (int i = 1; i <= count; i++)
-//     {
-//         line = NULL;
-//         len = 0;
-//         inFile = fopen(fname[i], "r");
-//         while ((read = getline(&line, &len, inFile)) != -1)
-//         {
-//             // text[i] = line;
-//             char *textAux = line;
-
-//             printf("%s\n", line);
-//             printf("%s\n", textAux);
-//             printf("%d\n", sizeof(textAux));
-//             for (int j = 0; j < sizeof(line); j++)
-//             {
-//                 text[k] = line[j];
-//                 k++;
-//                 // printf("%s\n", text);
-//             }
-//         }
-        
-//         fclose(inFile);
-//     }
-// }

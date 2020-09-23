@@ -25,31 +25,66 @@ int main(int argc, char *argv[])
             printf("wzip: cannot open file\n");
             exit(1);
         }
-        while ((read = getline(&line, &len, inFile)) != -1)
+        int currChar;        /* current characters */
+        int prevChar;        /* previous characters */
+        unsigned char count; /* number of characters in a run */
+
+        /* encode inFile */
+        prevChar = EOF; /* force next char to be different */
+        count = 0;
+        // aaaab
+        /* read input until there's nothing left */
+        while ((currChar = fgetc(inFile)) != EOF)
         {
-            aux = line[0];
-            count = 1;
-            for (int j = 1; j < len; j++)
-            {
-                if (aux == line[j])
-                {
-                    count++;
-                }
-                else if (j == len)
-                {
-                    /// ver que poner aqui 
-                }
-                else
-                {
-                    // printf("caracter %c", line[j]);
-                    // puts("");
-                    fwrite(&count, 4, 1, stdout);
-                    fwrite(&aux, 1, 1, stdout);
-                    aux = line[j];
-                    count = 1;
-                }
-            }
+            printf("%c",currChar);
+            // fputc(currChar, outFile);
+
+            // /* check for run */
+            // if (currChar == prevChar)
+            // {
+            //     /* we have a run.  count run length */
+            //     count = 0;
+
+            //     while ((currChar = fgetc(inFile)) != EOF)
+            //     {
+            //         if (currChar == prevChar)
+            //         {
+            //             count++;
+
+            //             if (count == UCHAR_MAX)
+            //             {
+            //                 /* count is as long as it can get */
+            //                 fputc(count, outFile);
+
+            //                 /* force next char to be different */
+            //                 prevChar = EOF;
+            //                 break;
+            //             }
+            //         }
+            //         else
+            //         {
+            //             /* run ended */
+            //             fputc(count, outFile);
+            //             fputc(currChar, outFile);
+            //             prevChar = currChar;
+            //             break;
+            //         }
+            //     }
+            // }
+            // else
+            // {
+            //     /* no run */
+            //     prevChar = currChar;
+            // }
+
+            // if (currChar == EOF)
+            // {
+            //     /* run ended because of EOF */
+            //     fputc(count, outFile);
+            //     break;
+            // }
         }
+
         fclose(inFile);
     }
 

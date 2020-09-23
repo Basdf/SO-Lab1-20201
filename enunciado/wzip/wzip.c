@@ -32,13 +32,14 @@ int main(int argc, char *argv[])
                 prevChar = currChar;
                 count = 1;
             }
-            if (prevChar == currChar)
+            else if (prevChar == currChar)
             {
                 printf("%i", count);
                 count++;
             }
-            if (prevChar != currChar)
+            else if (prevChar != currChar)
             {
+
                 fwrite(&count, 4, 1, stdout);
                 fwrite(&prevChar, 1, 1, stdout);
                 prevChar = currChar;

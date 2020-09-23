@@ -36,7 +36,7 @@ void compressFile(char *fname)
 
         char aux = line[0];
         int count = 1;
-        printf("linea %c",line);
+        printf("linea %s",line);
         puts("");
         for (int i = 1; i < len; i++)
         {

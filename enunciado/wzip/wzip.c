@@ -14,6 +14,7 @@ int main(int argc, char *argv[])
     unsigned char count; /* number of characters in a run */
     prevChar = EOF;      /* force next char to be different */
     count = 0;
+    //aaaaaaaaaaa
     for (int i = 1; i < argc; i++)
     {
 
@@ -46,6 +47,7 @@ int main(int argc, char *argv[])
 
         fclose(inFile);
     }
+    printf("%i",count);
     fwrite(&count, 4, 1, stdout);
     fwrite(&prevChar, 1, 1, stdout);
     return 0;

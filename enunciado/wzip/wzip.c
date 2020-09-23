@@ -15,7 +15,7 @@ int main(int argc, char *argv[])
     size_t read;
     char aux;
     int count;
-    
+
     for (int i = 1; i < argc; i++)
     {
 
@@ -37,8 +37,8 @@ int main(int argc, char *argv[])
                 }
                 else
                 {
-                    printf("caracter %c", line[j]);
-                    puts("");
+                    // printf("caracter %c", line[j]);
+                    // puts("");
                     fwrite(&count, 4, 1, stdout);
                     fwrite(&aux, 1, 1, stdout);
                     aux = line[j];

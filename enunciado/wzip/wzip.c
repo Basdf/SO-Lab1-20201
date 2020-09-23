@@ -33,20 +33,18 @@ void compressFile(char *fname)
     }
     while ((read = getline(&line, &len, inFile)) != -1)
     {
-
         char aux = line[0];
         int count = 1;
-        printf("linea %s",line);
-        puts("");
         for (int i = 1; i < len; i++)
         {
             if (aux == line[i])
             {
-                puts("entre al if");
                 count++;
             }
             else
             {
+                printf("caracter %c",line[i]);
+                puts("");
                 fwrite(&count, 4, 1, stdout);
                 fwrite(&aux, 1, 1, stdout);
                 aux = line[i];

@@ -44,7 +44,8 @@ void compressFile(char *fname)
         int count = 1;
         for (int i = 1; i < len; i++)
         {
-            printf("Caracter %c",line[i],"\n");
+            printf("Caracter %c",line[i]);
+            puts("");
             if (aux == line[i])
             {
                 count++;

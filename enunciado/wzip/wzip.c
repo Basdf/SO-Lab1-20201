@@ -34,6 +34,7 @@ int main(int argc, char *argv[])
             }
             if (prevChar == currChar)
             {
+                printf("%i", count);
                 count++;
             }
             if (prevChar != currChar)
@@ -47,7 +48,7 @@ int main(int argc, char *argv[])
 
         fclose(inFile);
     }
-    printf("%i",count);
+
     fwrite(&count, 4, 1, stdout);
     fwrite(&prevChar, 1, 1, stdout);
     return 0;

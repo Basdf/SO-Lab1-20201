@@ -38,9 +38,9 @@ int main(int argc, char *argv[])
             }
             else if (prevChar != currChar)
             {
-                puts("entre aqui");
-                // fwrite(&count, 4, 1, stdout);
-                // fwrite(&prevChar, 1, 1, stdout);
+
+                fwrite(&count, 4, 1, stdout);
+                fwrite(&prevChar, 1, 1, stdout);
                 prevChar = currChar;
                 count = 1;
             }
@@ -50,6 +50,6 @@ int main(int argc, char *argv[])
     }
 
     fwrite(&count, 1, 4, stdout);
-    //fwrite(&prevChar, 1, 1, stdout);
+    fwrite(&prevChar, 1, 1, stdout);
     return 0;
 }

@@ -3,7 +3,7 @@
 #include <stdlib.h>
 
 void compressFile(char *fname);
-void fuseFiles(int count, char *fname[]);
+// void fuseFiles(int count, char *fname[]);
 
 char text[] = {};
 
@@ -44,7 +44,7 @@ void compressFile(char *fname)
         int count = 1;
         for (int i = 1; i < len; i++)
         {
-            printf(line[i]);
+            puts(line[i]);
             if (aux == line[i])
             {
                 count++;
@@ -61,34 +61,34 @@ void compressFile(char *fname)
     fclose(inFile);
 }
 
-void fuseFiles(int count, char *fname[])
-{
-    char *line = NULL;
-    size_t len = 0;
-    size_t read;
-    FILE *inFile;
-    int k = 0;
-    for (int i = 1; i <= count; i++)
-    {
-        line = NULL;
-        len = 0;
-        inFile = fopen(fname[i], "r");
-        while ((read = getline(&line, &len, inFile)) != -1)
-        {
-            // text[i] = line;
-            char *textAux = line;
+// void fuseFiles(int count, char *fname[])
+// {
+//     char *line = NULL;
+//     size_t len = 0;
+//     size_t read;
+//     FILE *inFile;
+//     int k = 0;
+//     for (int i = 1; i <= count; i++)
+//     {
+//         line = NULL;
+//         len = 0;
+//         inFile = fopen(fname[i], "r");
+//         while ((read = getline(&line, &len, inFile)) != -1)
+//         {
+//             // text[i] = line;
+//             char *textAux = line;
 
-            printf("%s\n", line);
-            printf("%s\n", textAux);
-            printf("%d\n", sizeof(textAux));
-            for (int j = 0; j < sizeof(line); j++)
-            {
-                text[k] = line[j];
-                k++;
-                // printf("%s\n", text);
-            }
-        }
+//             printf("%s\n", line);
+//             printf("%s\n", textAux);
+//             printf("%d\n", sizeof(textAux));
+//             for (int j = 0; j < sizeof(line); j++)
+//             {
+//                 text[k] = line[j];
+//                 k++;
+//                 // printf("%s\n", text);
+//             }
+//         }
         
-        fclose(inFile);
-    }
-}
+//         fclose(inFile);
+//     }
+// }

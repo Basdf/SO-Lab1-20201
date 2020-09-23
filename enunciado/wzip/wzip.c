@@ -50,7 +50,7 @@ int main(int argc, char *argv[])
     }
     printf("%i",count);
     count --;
-    //fwrite(&count, 4, 1, stdout);
+    fwrite(count, 4, 1, stdout);
     //fwrite(&prevChar, 1, 1, stdout);
     return 0;
 }

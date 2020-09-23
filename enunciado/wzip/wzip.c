@@ -35,6 +35,10 @@ int main(int argc, char *argv[])
                 {
                     count++;
                 }
+                else if (j == len)
+                {
+                    /// ver que poner aqui 
+                }
                 else
                 {
                     // printf("caracter %c", line[j]);

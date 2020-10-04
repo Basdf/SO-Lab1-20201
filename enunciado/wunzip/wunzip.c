@@ -26,6 +26,7 @@ int main(int argc, char *argv[])
         {
             if (contador == 5)
             {
+                // tranforma el entero de 4 bytes a un entero normalito para entenderlo en el codigo basicamente
                 int x = (binario[3] << 24) | (binario[2] << 16) | (binario[1] << 8) | binario[0];
                 for (int a = 0; a < x; a++)
                 {

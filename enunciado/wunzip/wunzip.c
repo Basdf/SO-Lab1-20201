@@ -12,37 +12,36 @@ int main(int argc, char *argv[])
 
     for (int i = 1; i < argc; i++)
     {
-        char c;
+        int currChar;
         char binario[4];
         int contador = 1;
-        FILE *fp = fopen(argv[i], "r");
-        if (fp == NULL)
+        FILE *inFile = fopen(argv[i], "r");
+        if (inFile == NULL)
         {
             printf("wunzip: cannot open file\n");
             exit(1);
         }
 
-        c = fgetc(fp);
-        while (c != EOF)
+        while ((currChar = fgetc(inFile)) != EOF)
         {
             if (contador == 5)
             {
                 int x = (binario[3] << 24) | (binario[2] << 16) | (binario[1] << 8) | binario[0];
                 for (int a = 0; a < x; a++)
                 {
-                    printf("%c", c);
+                    printf("%c", currChar);
                 }
                 contador=0;
             }
             else
             {
-                binario[contador - 1] = c;
+                binario[contador - 1] = currChar;
             }
-            c = fgetc(fp);
+            currChar = fgetc(inFile);
             contador = contador + 1;
         }
 
-        fclose(fp);
+        fclose(inFile);
     }
 
     return 0;
